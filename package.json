@@ -6,6 +6,8 @@
 	"author": "Ariful Alam <alamariful1727@gmail.com>",
 	"license": "MIT",
 	"scripts": {
+		"dev": "nodemon",
+		"prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./build/src/index.js",
 		"build": "tsc",
 		"lint": "eslint . --report-unused-disable-directives",
 		"lint:fix": "eslint . --fix"
@@ -19,6 +21,7 @@
 		"eslint-import-resolver-typescript": "^3.5.2",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-prettier": "^4.2.1",
+		"nodemon": "^2.0.20",
 		"prettier": "^2.7.1",
 		"ts-node": "^10.9.1",
 		"tsconfig-paths": "^4.1.0",
