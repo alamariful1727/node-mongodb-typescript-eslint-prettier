@@ -6,6 +6,7 @@
 	"author": "Ariful Alam <alamariful1727@gmail.com>",
 	"license": "MIT",
 	"scripts": {
+		"dev": "ts-node -r tsconfig-paths/register ./src/index.ts",
 		"build": "tsc",
 		"lint": "eslint . --report-unused-disable-directives",
 		"lint:fix": "eslint . --fix"
