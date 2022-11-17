@@ -1,11 +1,11 @@
-import dotenv = require("dotenv");
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import config from "config";
 import connectToDatabase from "@src/database";
 import log from "@src/utils/logger";
 
 const app = express();
-dotenv.config();
 
 const PORT = config.get<number>("port");
 
