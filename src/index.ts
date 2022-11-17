@@ -1,7 +1,8 @@
 import dotenv = require("dotenv");
 import express from "express";
 import config from "config";
-import connectToDatabase from "./database";
+import connectToDatabase from "@src/database";
+import log from "@src/utils/logger";
 
 const app = express();
 dotenv.config();
@@ -13,6 +14,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-	console.log(`Server is listening at http://localhost:${PORT}`);
+	log.info(`Server is listening at http://localhost:${PORT}`);
 	connectToDatabase();
 });
