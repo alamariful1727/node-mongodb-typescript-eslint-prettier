@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from "express";
+import { CreateProductInput } from "@src/modules/product/product.validation";
 
 export const createProduct = async (
-	req: Request,
+	req: Request<unknown, unknown, CreateProductInput>,
 	res: Response,
 	next: NextFunction,
 ) => {
