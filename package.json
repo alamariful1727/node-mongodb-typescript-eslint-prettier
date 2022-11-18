@@ -1,5 +1,5 @@
 {
-	"name": "node-typescript-eslint-prettier-jest",
+	"name": "node-typescript-eslint-prettier",
 	"version": "1.0.0",
 	"description": "Setup a backend project with nodejs, typescript, eslint, prettier and jest.",
 	"main": "src/index.ts",
