@@ -22,6 +22,12 @@ app.get("/", (req, res) => {
 
 app.use("/api", routes);
 
+app.use((req, res) => {
+	return res.status(404).json({
+		message: "API not found",
+	});
+});
+
 const PORT = config.get<number>("port");
 app.listen(PORT, () => {
 	log.info(`Server is listening at http://localhost:${PORT}`);
