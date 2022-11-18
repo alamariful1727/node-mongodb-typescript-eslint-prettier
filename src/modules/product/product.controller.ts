@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import { CreateProductInput } from "@src/modules/product/product.validation";
+import { createProduct } from "./product.service";
 
-export const createProduct = async (
+export const createProductHandler = async (
 	req: Request<unknown, unknown, CreateProductInput>,
 	res: Response,
 	next: NextFunction,
@@ -9,8 +10,10 @@ export const createProduct = async (
 	try {
 		const body = req.body;
 
+		const product = await createProduct(body);
+
 		return res.status(201).json({
-			body,
+			product,
 		});
 	} catch (error) {
 		next(error);

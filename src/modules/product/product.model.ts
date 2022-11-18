@@ -29,7 +29,7 @@ interface IProduct {
 	updatedAt: Date;
 }
 
-interface IProductModel extends IProduct, Document {}
+export interface IProductModel extends IProduct, Document {}
 
 const ProductModel = model<IProductModel>("Product", ProductSchema);
 
