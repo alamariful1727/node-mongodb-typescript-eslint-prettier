@@ -1,6 +1,6 @@
-# node-typescript-eslint-prettier-jest
+# node-typescript-eslint-prettier
 
-This project is about how to setup a **nodejs** backend project with **typescript**, **eslint**, **prettier** & **jest**.
+This project is about how to setup a **nodejs** backend project with **typescript**, **eslint** & **prettier**.
 
 ## Available Scripts
 
