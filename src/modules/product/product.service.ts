@@ -13,3 +13,5 @@ export const updateProduct = (id: string, data: UpdateProductInput["body"]) =>
 		// this will return the updated data
 		new: true,
 	});
+
+export const deleteProduct = (id: string) => ProductModel.findByIdAndDelete(id);

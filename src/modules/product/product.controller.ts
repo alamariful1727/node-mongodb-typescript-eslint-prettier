@@ -1,11 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import {
 	CreateProductInput,
+	DeleteProductInput,
 	GetProductInput,
 	UpdateProductInput,
 } from "@src/modules/product/product.validation";
 import {
 	createProduct,
+	deleteProduct,
 	getAllProducts,
 	getProduct,
 	updateProduct,
@@ -91,7 +93,32 @@ export const updateProductHandler = async (
 		}
 
 		return res.status(200).json({
+			message: "Product updated successfully",
 			product,
+		});
+	} catch (error) {
+		next(error);
+	}
+};
+
+export const deleteProductHandler = async (
+	req: Request<DeleteProductInput["params"]>,
+	res: Response,
+	next: NextFunction,
+) => {
+	try {
+		const productId = req.params.id;
+
+		const product = await deleteProduct(productId);
+
+		if (!product) {
+			return res.status(404).json({
+				message: "Product not found",
+			});
+		}
+
+		return res.status(200).json({
+			message: "Product removed successfully",
 		});
 	} catch (error) {
 		next(error);

@@ -43,8 +43,16 @@ export const updateProductValidation = z.object({
 	}),
 });
 
+export const deleteProductValidation = z.object({
+	params: z.object({
+		id: z.string({ required_error: "id is required" }),
+	}),
+});
+
 export type CreateProductInput = z.TypeOf<typeof createProductValidation>;
 
 export type GetProductInput = z.TypeOf<typeof getProductValidation>;
 
 export type UpdateProductInput = z.TypeOf<typeof updateProductValidation>;
+
+export type DeleteProductInput = z.TypeOf<typeof deleteProductValidation>;
