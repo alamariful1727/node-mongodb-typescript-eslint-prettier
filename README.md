@@ -16,22 +16,32 @@ This project is about how to setup a **nodejs** backend project with **mongodb**
 
 In the project directory, you can run:
 
-### `yarn dev`
+```bash
+yarn dev
+```
 
 Runs the app in the development mode.
 
-### `yarn run build`
+```bash
+yarn run build
+```
 
 Builds the app for production to the `build` folder.
 
-### `yarn run prod`
+```bash
+yarn run prod
+```
 
 Runs the production app.
 
-### `yarn run lint`
+```bash
+yarn run lint
+```
 
 Eslint will show all errors and warnings.
 
-### `yarn run lint:fix`
+```bash
+yarn run lint:fix
+```
 
 Eslint will fix all errors and warnings (which are fixable).
