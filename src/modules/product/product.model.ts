@@ -1,6 +1,15 @@
 import { Document, Schema, model } from "mongoose";
 
-const ProductSchema: Schema = new Schema(
+interface IProduct {
+	name: string;
+	description: string;
+	createdAt: Date;
+	updatedAt: Date;
+}
+
+export interface IProductModel extends IProduct, Document {}
+
+const ProductSchema = new Schema<IProduct>(
 	{
 		name: {
 			type: String,
@@ -21,15 +30,6 @@ const ProductSchema: Schema = new Schema(
 		versionKey: false,
 	},
 );
-
-interface IProduct {
-	name: string;
-	description: string;
-	createdAt: Date;
-	updatedAt: Date;
-}
-
-export interface IProductModel extends IProduct, Document {}
 
 const ProductModel = model<IProductModel>("Product", ProductSchema);
 
