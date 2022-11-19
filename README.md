@@ -1,6 +1,16 @@
-# node-typescript-eslint-prettier
+# node-mongodb-typescript-eslint-prettier
 
-This project is about how to setup a **nodejs** backend project with **typescript**, **eslint** & **prettier**.
+This project is about how to setup a **nodejs** backend project with **mongodb** database, **typescript**, **eslint** & **prettier**.
+
+## Key features:
+
+- Express framework. ✅
+- MongoDB database connection, schema creation and validation. ✅
+- Zod validation. (Request **body**, **params** and **query** validation) ✅
+- Error handling. ✅
+- TypeScript configuration. ✅
+- Eslint configuration. ✅
+- Prettier configuration. ✅
 
 ## Available Scripts
 
