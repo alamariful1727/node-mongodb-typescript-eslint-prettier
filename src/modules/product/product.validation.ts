@@ -24,8 +24,27 @@ export const getProductValidation = z.object({
 	}),
 });
 
-export type CreateProductInput = z.TypeOf<
-	typeof createProductValidation
->["body"];
+export const updateProductValidation = z.object({
+	body: z.object({
+		name: z
+			.string()
+			.trim()
+			.min(2, "At least 2 characters long")
+			.max(30, "Not more than 30 characters")
+			.optional(),
+		description: z
+			.string()
+			.trim()
+			.max(100, "Not more than 100 characters")
+			.optional(),
+	}),
+	params: z.object({
+		id: z.string({ required_error: "id is required" }),
+	}),
+});
 
-export type GetProductInput = z.TypeOf<typeof getProductValidation>["params"];
+export type CreateProductInput = z.TypeOf<typeof createProductValidation>;
+
+export type GetProductInput = z.TypeOf<typeof getProductValidation>;
+
+export type UpdateProductInput = z.TypeOf<typeof updateProductValidation>;

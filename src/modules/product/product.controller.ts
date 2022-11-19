@@ -2,11 +2,17 @@ import { Request, Response, NextFunction } from "express";
 import {
 	CreateProductInput,
 	GetProductInput,
+	UpdateProductInput,
 } from "@src/modules/product/product.validation";
-import { createProduct, getAllProducts, getProduct } from "./product.service";
+import {
+	createProduct,
+	getAllProducts,
+	getProduct,
+	updateProduct,
+} from "./product.service";
 
 export const createProductHandler = async (
-	req: Request<unknown, unknown, CreateProductInput>,
+	req: Request<unknown, unknown, CreateProductInput["body"]>,
 	res: Response,
 	next: NextFunction,
 ) => {
@@ -40,7 +46,7 @@ export const getAllProductsHandler = async (
 };
 
 export const getProductHandler = async (
-	req: Request<GetProductInput>,
+	req: Request<GetProductInput["params"]>,
 	res: Response,
 	next: NextFunction,
 ) => {
@@ -48,6 +54,35 @@ export const getProductHandler = async (
 		const productId = req.params.id;
 
 		const product = await getProduct(productId);
+
+		if (!product) {
+			return res.status(404).json({
+				message: "Product not found",
+			});
+		}
+
+		return res.status(200).json({
+			product,
+		});
+	} catch (error) {
+		next(error);
+	}
+};
+
+export const updateProductHandler = async (
+	req: Request<
+		UpdateProductInput["params"],
+		unknown,
+		UpdateProductInput["body"]
+	>,
+	res: Response,
+	next: NextFunction,
+) => {
+	try {
+		const data = req.body;
+		const productId = req.params.id;
+
+		const product = await updateProduct(productId, data);
 
 		if (!product) {
 			return res.status(404).json({
